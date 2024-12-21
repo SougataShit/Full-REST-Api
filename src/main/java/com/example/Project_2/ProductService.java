@@ -13,6 +13,7 @@ public class ProductService {
 	
 	
 	public List<Product> findAllProducts() {
+		System.out.println("List Of all product..");
 		return repository.findAll();
 	}
 
