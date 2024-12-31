@@ -1,9 +1,12 @@
-package com.example.Project_2;
+package com.example.Project_2.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.Project_2.model.Product;
+import com.example.Project_2.repository.ProductRepository;
 
 @Service
 public class ProductService {
@@ -29,7 +32,6 @@ public class ProductService {
 	
 
 	public Product addProducts(Product p) {
-		// TODO Auto-generated method stub
 		Product product=repository.save(p);
 		return product;
 	}
@@ -38,14 +40,12 @@ public class ProductService {
 
 
 	public void deleteById(int id) {
-		// TODO Auto-generated method stub
 		repository.deleteById(id);
 		
 	}
 
 
 	public void updateProducts(Product p, String type) {
-		// TODO Auto-generated method stub
 			List<Product> products=repository.findAllByType(type);
 			for(Product p1:products) {
 				p1.setType(p.getType());
